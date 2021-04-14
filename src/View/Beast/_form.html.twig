@@ -1,0 +1,54 @@
+<form method="post">
+<input type="hidden" value="{{ beast.id }}" name="id">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="title">Name :</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="area">Area :</label>
+            <input type="text" class="form-control" name="area">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="area">Picture :</label>
+            <input type="url" class="form-control" name="picture" id="picture"/>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="size">Size (in meter):</label>
+            <input type="text" class="form-control" name="size" id="size"/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="planet">Planet :</label>
+            <select name="planet" class="custom-select" id="planet">
+                {% for planet in planets  %}
+                    {% if beast.id_planet == planet.id %}
+                          <option value={{planet.id}} selected>{{planet.name}}</option>
+                    {% else %}
+                         <option value={{planet.id}}>{{planet.name}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="movies">Movie :</label>
+            <select name="movie" class="custom-select" id="movies">
+               {% for movie in movies  %}
+                    {% if beast.id_movie == movie.id %}
+                          <option value={{movie.id}} selected>{{movie.title}}</option>
+                    {% else %}
+                         <option value={{movie.id}}>{{movie.title}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="form-row">x
+        <div class="form-group col-12">
+            <input type="submit" value="Valider" class="float-right">
+        </div>
+    </div>
+</form>
